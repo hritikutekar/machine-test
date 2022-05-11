@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form </title>
+</head>
+<body>
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            username = <input type="text" name="username" value="{{reg.username}}"><br><br>
+            email = <input type="text" name="email" value="{{reg.email}}"><br><br>
+            password1 = <input type="text" name="password" value="{{reg.password}}"><br><br>
+            <input type="submit">
+            <button type="submit"><a href="/login/" >signin</a></button>
+        </form>
+
+</body>
+</html>
+
+
+
+
+

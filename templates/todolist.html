@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Page</title>
+</head>
+<body>
+    <form action="/todo/" method="post">
+        {% csrf_token %}
+        <input type="text" name="todolist" value="{{reg.todolist}}">
+        <input type="submit">
+    </form>
+    {% if regs %}
+    <h1>My To Do List</h1>
+    <table border="1">
+        <thead>
+        <th>id</th><th>todolist</th><th>Actions</th>
+        </thead>
+        {% for item in regs %}
+        <tbody>
+            <td>{{item.id}}</td>
+            <td>{{item.text}}</td>
+            <th><a href="/edit/{{item.id}}">Edit</a>  <a href="http://127.0.0.1:8000/delete/{{item.id}}/">Delete</a></th>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No List Found</p>
+    {% endif %}
+</body>
+</html>
